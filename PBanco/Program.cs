@@ -99,11 +99,6 @@ namespace PBanco
         static Conta TelaLogin(Agencia agencia, Conta conta)
         {
             conta = new Conta();
-            if (agencia.ListaContas.Count == 0)
-            {
-                
-                return null;
-            }
             while (true)
             {
                 Console.Clear();
@@ -116,27 +111,22 @@ namespace PBanco
                     continue;
                 }
                 conta = agencia.BuscarConta(user);
-
                 return conta;
             }
         }
         static bool TelaCadastro(Agencia agencia)
         {
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine("*********MENU CADASTRO*********");
-
-                Cliente cliente = new Cliente();
-                cliente.CadastrarPessoa();
-                Conta conta = cliente.CadastrarConta(agencia);
-                agencia.ListaFuncionarios[0].AbrirConta(conta);
-                agencia.Gerente.AprovarConta(conta);
-                agencia.ListaContas.Add(conta);
-                Console.WriteLine("Conta criada com sucesso. O numero da sua nova conta é {0}, ANOTE ESTE NUMERO!", conta.IDConta);
-                ReadString("Pressione qualquer tecla para continuar...");
-                return true;
-            }
+            Console.Clear();
+            Console.WriteLine("*********MENU CADASTRO*********");
+            Cliente cliente = new Cliente();
+            cliente.CadastrarPessoa();
+            Conta conta = cliente.CadastrarConta(agencia);
+            agencia.ListaFuncionarios[0].AbrirConta(conta);
+            agencia.Gerente.AprovarConta(conta);
+            agencia.ListaContas.Add(conta);
+            Console.WriteLine("Conta criada com sucesso. O numero da sua nova conta é {0}, ANOTE ESTE NUMERO!", conta.IDConta);
+            ReadString("Pressione qualquer tecla para continuar...");
+            return true;
         }
         static bool MenuConta(Conta conta)
         {
@@ -151,17 +141,14 @@ namespace PBanco
                 Console.WriteLine("1. Sacar");
                 Console.WriteLine("2. Depositar");
                 Console.WriteLine("3. Consultar Saldo");
-
                 Console.WriteLine("0. Voltar Para a Tela Inicial");
                 Console.WriteLine("{0}{1}", msg == "" ? "" : ">>> ", msg);
-
                 op = ReadString("Opcao: ");
                 if (!BuscarNaLista(op, options))
                 {
                     msg = "Opcao invalida! Digite novamente...";
                     continue;
                 }
-
                 switch (op)
                 {
                     case "1":
@@ -178,22 +165,6 @@ namespace PBanco
                         return true;
                 }
             }
-            return false;
-        }
-        static string ReadString(string text)
-        {
-            Console.Write(text);
-            return Console.ReadLine();
-        }
-        static float ReadFloat(string text)
-        {
-            Console.Write(text);
-            return float.Parse(Console.ReadLine());
-        }
-        static bool BuscarNaLista(string c, string[] list)
-        {
-            for (int i = 0; i < list.Length; i++)
-                if (list[i] == c) return true;
             return false;
         }
         static void CarregarListaDeContas(List<Conta> list, string arq)
@@ -225,7 +196,6 @@ namespace PBanco
                 }
             }
         }
-
         static void DescarregarListaDeContas(List<Conta> list, string arq)
         {
             using (StreamWriter sw = new StreamWriter(arq))
@@ -282,6 +252,22 @@ namespace PBanco
         static void DescarregarGerente(Gerente gerente, string arq)
         {
             using (StreamWriter sw = new StreamWriter(arq)) sw.WriteLine(gerente);
+        }
+        static string ReadString(string text)
+        {
+            Console.Write(text);
+            return Console.ReadLine();
+        }
+        static float ReadFloat(string text)
+        {
+            Console.Write(text);
+            return float.Parse(Console.ReadLine());
+        }
+        static bool BuscarNaLista(string c, string[] list)
+        {
+            for (int i = 0; i < list.Length; i++)
+                if (list[i] == c) return true;
+            return false;
         }
     }
 }
