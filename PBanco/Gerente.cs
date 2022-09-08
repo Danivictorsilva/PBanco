@@ -12,7 +12,11 @@ namespace PBanco
 
         //Metodos
         public Gerente() { }
-        public void AprovarConta() { }
-        public void AprovarEmprestimo() { }
+        public Gerente(string nome, string cpf, DateTime datanasc, Endereco endereco, string matricula)
+            :base(nome, cpf, datanasc, endereco, matricula) { }
+        public void AprovarConta(Conta conta)
+        {
+            conta.StatusAberta = true;
+        }
     }
 }

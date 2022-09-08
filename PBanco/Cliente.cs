@@ -6,12 +6,38 @@ using System.Threading.Tasks;
 
 namespace PBanco
 {
-    internal abstract class Cliente : Pessoa
+    internal class Cliente : Pessoa
     {
         //Propriedades
 
         //Metodos
         public Cliente() { }
-        public void PedirEmprestimo() { }
+        public Cliente(string nome, string cpf, DateTime datanasc, Endereco endereco)
+            : base(nome, cpf, datanasc, endereco) { }
+
+        public Conta CadastrarConta(Agencia agencia)
+        {
+            Conta conta = new Conta
+                (
+                    "",
+                    "",
+                    0,
+                    false,
+                    this,
+                    ReadString("Digite uma nova senha: ")
+                );
+            return conta;
+        }
+        static string ReadString(string text)
+        {
+            Console.Write(text);
+            return Console.ReadLine();
+        }
+        static DateTime ReadDate(string text)
+        {
+            Console.Write(text);
+            return DateTime.Parse(Console.ReadLine());
+
+        }
     }
 }
