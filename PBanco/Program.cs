@@ -185,12 +185,6 @@ namespace PBanco
             Console.Write(text);
             return Console.ReadLine();
         }
-        static DateTime ReadDate(string text)
-        {
-            Console.Write(text);
-            return DateTime.Parse(Console.ReadLine());
-
-        }
         static float ReadFloat(string text)
         {
             Console.Write(text);
