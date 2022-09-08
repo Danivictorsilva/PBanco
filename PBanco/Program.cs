@@ -178,7 +178,6 @@ namespace PBanco
                     case "3":
                         msg = String.Format("Saldo: R${0:0.00}", conta.ConsultarSaldo());
                         break;
-                        break;
                     case "0":
                         return true;
                 }
