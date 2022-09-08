@@ -38,9 +38,10 @@ namespace PBanco
                         goto case "0";
                     }
                     conta = TelaLogin(agencia, conta);
+                    
                     goto case "3";
                 case "2":
-                    if (TelaCadastro(agencia)) goto case "3";
+                    if (TelaCadastro(agencia)) goto case "1";
                     break;
                 case "3":
                     if (MenuConta(conta)) goto case "0";
@@ -137,7 +138,7 @@ namespace PBanco
                 agencia.ListaFuncionarios[0].AbrirConta(conta);
                 agencia.Gerente.AprovarConta(conta);
                 agencia.ListaContas.Add(conta);
-                Console.WriteLine("Conta criada com sucesso. O numero da sua nova conta é {0}", conta.IDConta);
+                Console.WriteLine("Conta criada com sucesso. O numero da sua nova conta é {0}, ANOTE ESTE NUMERO!", conta.IDConta);
                 ReadString("Pressione qualquer tecla para continuar...");
                 return true;
             }
@@ -177,7 +178,6 @@ namespace PBanco
                         break;
                     case "3":
                         msg = String.Format("Saldo: R${0:0.00}", conta.ConsultarSaldo());
-                        break;
                         break;
                     case "0":
                         return true;
