@@ -11,9 +11,8 @@ namespace PBanco
         static void Main(string[] args)
         {
             //Declaracoes
-            //string[,] accessDict = new string[2, MAX_CLIENTES];
-            //Dictionary<string, string> accessDict = new Dictionary<string, string>();
             Agencia agencia = new Agencia();
+            //Alterar os caminhos para os corretos antes de rodar!
             string pathListaDeContas = "C:\\Users\\5BY5\\source\\repos\\PBanco\\PBanco\\ListaContas.txt";
             string pathListaDeFuncionarios = "C:\\Users\\5BY5\\source\\repos\\PBanco\\PBanco\\ListaFuncionarios.txt";
             string pathGerente = "C:\\Users\\5BY5\\source\\repos\\PBanco\\PBanco\\Gerente.txt";
@@ -37,7 +36,6 @@ namespace PBanco
                     {
                         ReadString("A agencia ainda nao possui contas cadastradas\nPressione qualquer tecla para continuar...");
                         goto case "0";
-
                     }
                     conta = TelaLogin(agencia, conta);
                     goto case "3";
@@ -179,6 +177,7 @@ namespace PBanco
                         break;
                     case "3":
                         msg = String.Format("Saldo: R${0:0.00}", conta.ConsultarSaldo());
+                        break;
                         break;
                     case "0":
                         return true;
