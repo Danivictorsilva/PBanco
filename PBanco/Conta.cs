@@ -52,7 +52,5 @@ namespace PBanco
             Saldo += deposito;
         }
         public float ConsultarSaldo() => Saldo;
-
-
     }
 }

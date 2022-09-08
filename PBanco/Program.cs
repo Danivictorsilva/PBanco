@@ -7,7 +7,6 @@ namespace PBanco
 {
     internal class Program
     {
-        const int MAX_CLIENTES = 10;
         static void Main(string[] args)
         {
             //Declaracoes
@@ -38,7 +37,6 @@ namespace PBanco
                         goto case "0";
                     }
                     conta = TelaLogin(agencia, conta);
-                    
                     goto case "3";
                 case "2":
                     if (TelaCadastro(agencia)) goto case "1";
@@ -47,7 +45,6 @@ namespace PBanco
                     if (MenuConta(conta)) goto case "0";
                     break;
             }
-
             DescarregarListaDeContas(agencia.ListaContas, pathListaDeContas);
             DescarregarListaDeFuncionarios(agencia.ListaFuncionarios, pathListaDeFuncionarios);
             DescarregarGerente(agencia.Gerente, pathGerente);
@@ -81,14 +78,12 @@ namespace PBanco
                 Console.WriteLine("2. Nao possuo cadastro");
                 Console.WriteLine("0. Sair do Programa");
                 Console.WriteLine("{0}{1}", msg == "" ? "" : ">>> ", msg);
-
                 op = ReadString("Opcao: ");
                 if (!BuscarNaLista(op, options))
                 {
                     msg = String.Format("Opcao invalida! Digite novamente...");
                     continue;
                 }
-
                 switch (op)
                 {
                     case "1":

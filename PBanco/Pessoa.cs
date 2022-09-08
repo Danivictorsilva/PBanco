@@ -54,7 +54,6 @@ namespace PBanco
         {
             Console.Write(text);
             return DateTime.Parse(Console.ReadLine());
-
         }
     }
 }

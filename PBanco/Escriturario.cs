@@ -14,6 +14,5 @@ namespace PBanco
         public Escriturario() { }
         public Escriturario(string nome, string cpf, DateTime datanasc, Endereco endereco, string matricula)
             :base(nome, cpf, datanasc, endereco, matricula) { }
-
     }
 }

@@ -45,7 +45,6 @@ namespace PBanco
             foreach (Conta conta in ListaContas)
             {
                 if (conta.IDConta == idAgencia) return conta;
-
             }
             return null;
         }
