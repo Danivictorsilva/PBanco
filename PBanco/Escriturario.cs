@@ -12,7 +12,8 @@ namespace PBanco
 
         //Metodos
         public Escriturario() { }
-        public void AtribuirTipoDeConta() { }
+        public Escriturario(string nome, string cpf, DateTime datanasc, Endereco endereco, string matricula)
+            :base(nome, cpf, datanasc, endereco, matricula) { }
 
     }
 }

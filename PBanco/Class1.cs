@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace PBanco
 {
-    internal class CaixaEletronico
+    internal class Class1
     {
-        //Propriedades
-
-        //Metodos
-        public void ExibirMenu() { }
     }
 }
